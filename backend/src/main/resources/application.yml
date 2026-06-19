@@ -1,0 +1,37 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: ai-incident-intelligence-platform
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+    open-in-view: false
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.mariapreethi.incidentintelligence.model
+
+app:
+  frontend-url: ${FRONTEND_URL:http://localhost:5173}
+  demo-mode: ${DEMO_MODE:false}
+  kafka-enabled: ${KAFKA_ENABLED:true}
+  kafka-topic: service-events
+  openai-api-key: ${OPENAI_API_KEY:}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
