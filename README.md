@@ -127,11 +127,12 @@ Supported generation scenarios: `mixed`, `payment-failure`, `database-timeout`, 
 
 ## Render deployment
 
-1. Create a free PostgreSQL database on Render or another provider.
+1. Create a free PostgreSQL database on Render or another provider such as Neon or Supabase.
 2. Create a new Render Web Service from `mariapreethi-12/ai-incident-intelligence-platform`.
-3. Set root directory to `backend`.
-4. Use Docker runtime. Render will use `backend/Dockerfile`.
-5. Add environment variables:
+3. Render can use the included `render.yaml` Blueprint, or you can configure the service manually.
+4. Set root directory to `backend`.
+5. Use Docker runtime. Render will use `backend/Dockerfile`.
+6. Add environment variables:
 
    ```text
    PORT=8080
@@ -142,15 +143,16 @@ Supported generation scenarios: `mixed`, `payment-failure`, `database-timeout`, 
    OPENAI_API_KEY=<optional>
    ```
 
-6. Confirm `GET /api/health` returns `status: UP`.
+7. Confirm `GET /api/health` returns `status: UP`.
 
 ## Vercel deployment
 
 1. Import the same GitHub repo into Vercel.
 2. Set root directory to `frontend`.
-3. Set build command to `npm run build`.
-4. Set output directory to `dist`.
-5. Add:
+3. Vercel can use the included `frontend/vercel.json` project configuration.
+4. Set build command to `npm run build`.
+5. Set output directory to `dist`.
+6. Add:
 
    ```text
    VITE_API_BASE_URL=https://<your-render-service>.onrender.com
