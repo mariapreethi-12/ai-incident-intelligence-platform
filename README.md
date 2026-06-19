@@ -4,6 +4,9 @@ Repository: `mariapreethi-12/ai-incident-intelligence-platform`
 
 A full-stack observability and incident response project that behaves like a focused mini Datadog/PagerDuty: simulated microservices generate logs, errors, latency spikes, and timeout signals; Spring Boot streams those events through Kafka into PostgreSQL; incident detection opens actionable alerts; and an AI incident analyst produces root-cause summaries, timelines, affected services, and debugging steps.
 
+[![Deploy backend on Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/mariapreethi-12/ai-incident-intelligence-platform)
+[![Deploy frontend on Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/mariapreethi-12/ai-incident-intelligence-platform&root-directory=frontend&env=VITE_API_BASE_URL)
+
 ## Why this project is recruiter-impressive
 
 - Uses a production-style backend stack: Java 17, Spring Boot 3, Spring Kafka, PostgreSQL, Docker, and environment-driven deployment config.
